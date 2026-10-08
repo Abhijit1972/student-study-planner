@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-wrapper">
+        <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+          <path d="M6 6h10"/>
+          <path d="M6 10h10"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Study Planner</h1>
+        <p class="subtitle">Organize your academic routine and reach your study goals.</p>
+      </div>
+    </header>
+
+    <!-- Task Form Card -->
+    <section class="card form-card">
+      <form id="task-form">
+        <div class="input-grid">
+          <div class="field-group flex-2">
+            <label for="task-title">Task Name</label>
+            <input type="text" id="task-title" placeholder="e.g., Read Operating Systems Chapter 4" required />
+          </div>
+
+          <div class="field-group">
+            <label for="task-subject">Subject</label>
+            <select id="task-subject">
+              <option value="Computer Networks">Computer Networks</option>
+              <option value="Java Programming">Java Programming</option>
+              <option value="Database Systems">Database Systems</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="General Revision">General Revision</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="task-date">Due Date</label>
+            <input type="date" id="task-date" />
+          </div>
+
+          <div class="field-group">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="field-group btn-col">
+            <label class="sr-only">Submit</label>
+            <button type="submit" class="btn btn-primary">
+              <span>+ Add Task</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Metrics Overview -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">Total Assigned</span>
+        <span class="metric-val" id="stat-total">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Completed</span>
+        <span class="metric-val text-success" id="stat-completed">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Pending</span>
+        <span class="metric-val text-warning" id="stat-pending">0</span>
+      </div>
+    </section>
+
+    <!-- Progress Track Card -->
+    <section class="card progress-card">
+      <div class="progress-info">
+        <span class="progress-title">Overall Progress</span>
+        <span class="progress-pct" id="progress-text">0%</span>
+      </div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-fill" id="progress-bar" style="width: 0%"></div>
+      </div>
+      <p class="progress-subtext" id="progress-summary">0 of 0 tasks completed</p>
+    </section>
+
+    <!-- Filters & List -->
+    <section class="tasks-section">
+      <div class="tabs-bar">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="pending">Pending</button>
+        <button class="tab-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <div id="tasks-list" class="tasks-list">
+        <!-- Rendered items appear here -->
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
